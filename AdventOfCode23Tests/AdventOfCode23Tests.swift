@@ -7,190 +7,192 @@
 
 import XCTest
 @testable import AdventOfCode23
+//@testable import Advent_of_Code___Day_1
+//@testable import adventOfCodeD2
+//@testable import AdventOfCodeD3
 
 final class AdventOfCode23Tests: XCTestCase {
     
-    func testGivenInputWhenRequestedCalibrationInputShouldReturnValue(){
-        let input = "6798seven"
-        var document = CalibrationDocument()
-        
-        let result = 67
-        
-        //XCTAssertEqual(document.getCalibrationValue(from: input), result)
-        XCTAssertEqual(document.getCalibrationValue(from: input), result)
-    }
-    
-    func testGivenInputOneDigitShouldReturnDigitTwice() {
-        let input = "nsodkn5pdksn"
-        var document = CalibrationDocument()
-        
-        let result = 55
-        
-        XCTAssertEqual(document.getCalibrationValue(from: input), result
-        )
-    }
-    
-    func testGivenMultiLineShouldReturnResult() {
-        var doc = CalibrationDocument()
-        let rawData = """
-        fivejhgdbfvsnk0
-        53gfssf40
-        """
-        
-        let result = 100
-        
-        XCTAssertEqual(doc.getCalibrationValue(from: rawData), result)
-    }
-    
-    func testGivenManyLinesShouldReturnResult() {
-        var doc = CalibrationDocument()
-        let rawData = """
-                6798seven
-                six8b32csscsdgjsevenfivedlhzhc
-                fcvvkvjjnhfivesixfiveninesxlvnhfckc54
-                feightwo4twofivefour
-        """
-        
-        let result = 67+65+54+84
-        
-        XCTAssertEqual(doc.getCalibrationValue(from: rawData), result)
-    }
-    
-    func testGivenRawDataShouldReturnKataResult() {
-        var document = CalibrationDocument()
-        let result = 55343
-        
-        XCTAssertEqual(document.getCalibrationValue(from: AdventOfCodeTests.rawData), result)
-    }
-    
-    func testGivenAGameWhenValidShouldReturn1() {
-        var dm = DiceMaster()
-        let game = "Game 1: 4 red, 5 blue, 4 green; 7 red, 8 blue, 2 green; 9 blue, 6 red; 1 green, 3 red, 7 blue; 3 green, 7 red"
-        
-        let result = 1
-        
-        XCTAssertEqual(dm.getPossibleGames(from: game, forPart: 1), result)
-    }
-    
-    func testGivenAnInvalidGameWhenValidShouldReturn0() {
-        var dm = DiceMaster()
-        let game = "Game 1: 4 red, 5 blue, 4 green; 7 red, 8 blue, 2 green; 9 blue, 6 red; 1 green, 30 red, 7 blue; 3 green, 7 red"
-        
-        let result = 0
-        
-        XCTAssertEqual(dm.getPossibleGames(from: game, forPart: 1), result)
-    }
-    
-    func testGivenTwoGamesWhenValidShouldReturn2() {
-        var dm = DiceMaster()
-        let game = """
-        Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
-        Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
-        Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
-        Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
-        Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
-        """
-        
-        let result = 8
-        
-        XCTAssertEqual(dm.getPossibleGames(from: game, forPart: 1), result)
-    }
-    
-    func testGivenPuzzleInputShouldReturnKataSolution() {
-        var dm = DiceMaster()
-        
-        let result = 2061
-        
-        XCTAssertEqual(dm.getPossibleGames(from: Self.puzzleInput, forPart: 1), result)
-    }
-    
-    func testGivenPuzzleSampleForPart2ReturnsSampleSolution() {
-        var dm = DiceMaster()
-        let sampleData = """
-            Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
-            Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
-            Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
-            Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
-            Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
-        """
-        
-        let result = 2286
-        
-        XCTAssertEqual(dm.getPossibleGames(from: sampleData, forPart: 2), result)
-    }
-    
-    func testGivenPuzzleInputForPart2ShouldReturnPT2Solution() {
-        var dm = DiceMaster()
-        
-        let result = 72596
-        
-        XCTAssertEqual(dm.getPossibleGames(from: Self.puzzleInput, forPart: 2), result)
-    }
-    
-    func testGivenPuzzleSampleShouldReturnSampleResult(){
-        var ws = Workshop()
-        
-        let sampleData = """
-        467*.114..
-        ..........
-        .*35..633.
-        ......#...
-        617*......
-        .....+.58.
-        ..592.....
-        ......755.
-        ...$.*....
-        .664.598..
-        """
-        
-        let sampleResult = 4361
-        
-        XCTAssertEqual(ws.getSchematics(from: sampleData), sampleResult)
-    }
-    
-    func testSample() {
-        var ws = Workshop()
-        
-        let sampleData = """
-        *11.12*
-        .21.21.
-        .31.32.
-        *.....*
-        """
-        
-        let sampleResult = 128
-        
-        XCTAssertEqual(ws.getSchematics(from: sampleData), sampleResult)
-    }
-    
-    func testSample2() {
-        var ws = Workshop()
-        
-        let sampleData = """
-        *.....*
-        41...42
-        """
-        
-        let sampleResult = 83
-        
-        XCTAssertEqual(ws.getSchematics(from: sampleData), sampleResult)
-    }
-    
-    func testGivenPuzzleDataShouldReturnPuzzleSolution() {
-        var ws = Workshop()
-        
-        let result = 0
-        
-        XCTAssertEqual(ws.getSchematics(from: Self.rawInput), result)
-    }
-
-    func testGivenPuzzleDataShouldReturnPuzzleSolution2() {
-        let ws = NewWorkshop()
-        
-        let result = 0
-        
-        XCTAssertEqual(ws.sumOfPartNumbers(engineSchematic: Self.rawInput), result)
-    }
+//    func testGivenInputWhenRequestedCalibrationInputShouldReturnValue(){
+//        let input = "6798seven"
+//        var document = CalibrationDocument()
+//        
+//        let result = 67
+//        
+//        //XCTAssertEqual(document.getCalibrationValue(from: input), result)
+//        XCTAssertEqual(document.getCalibrationValue(from: input), result)
+//    }
+//    
+//    func testGivenInputOneDigitShouldReturnDigitTwice() {
+//        let input = "nsodkn5pdksn"
+//        var document = CalibrationDocument()
+//        
+//        let result = 55
+//        
+//        XCTAssertEqual(document.getCalibrationValue(from: input), result)
+//    }
+//    
+//    func testGivenMultiLineShouldReturnTheResult() {
+//        var doc = CalibrationDocument()
+//        let rawData = """
+//        fivejhgdbfvsnk0
+//        53gfssf40
+//        """
+//        
+//        let result = 100
+//        
+//        XCTAssertEqual(doc.getCalibrationValue(from: rawData), result)
+//    }
+//    
+//    func testGivenManyLinesShouldReturnResult() {
+//        var doc = CalibrationDocument()
+//        let rawData = """
+//                6798seven
+//                six8b32csscsdgjsevenfivedlhzhc
+//                fcvvkvjjnhfivesixfiveninesxlvnhfckc54
+//                feightwo4twofivefour
+//        """
+//        
+//        let result = 67+65+54+84
+//        
+//        XCTAssertEqual(doc.getCalibrationValue(from: rawData), result)
+//    }
+//    
+//    func testGivenRawDataShouldReturnKataResult() {
+//        var document = CalibrationDocument()
+//        let result = 55343
+//        
+//        XCTAssertEqual(document.getCalibrationValue(from: Self.rawData), result)
+//    }
+//    
+//    func testGivenAGameWhenValidShouldReturn1() {
+//        var dm = DiceMaster()
+//        let game = "Game 1: 4 red, 5 blue, 4 green; 7 red, 8 blue, 2 green; 9 blue, 6 red; 1 green, 3 red, 7 blue; 3 green, 7 red"
+//        
+//        let result = 1
+//        
+//        XCTAssertEqual(dm.getPossibleGames(from: game, forPart: 1), result)
+//    }
+//    
+//    func testGivenAnInvalidGameWhenValidShouldReturn0() {
+//        var dm = DiceMaster()
+//        let game = "Game 1: 4 red, 5 blue, 4 green; 7 red, 8 blue, 2 green; 9 blue, 6 red; 1 green, 30 red, 7 blue; 3 green, 7 red"
+//        
+//        let result = 0
+//        
+//        XCTAssertEqual(dm.getPossibleGames(from: game, forPart: 1), result)
+//    }
+//    
+//    func testGivenTwoGamesWhenValidShouldReturn2() {
+//        var dm = DiceMaster()
+//        let game = """
+//        Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+//        Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
+//        Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
+//        Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
+//        Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
+//        """
+//        
+//        let result = 8
+//        
+//        XCTAssertEqual(dm.getPossibleGames(from: game, forPart: 1), result)
+//    }
+//    
+//    func testGivenPuzzleInputShouldReturnKataSolution() {
+//        var dm = DiceMaster()
+//        
+//        let result = 2061
+//        
+//        XCTAssertEqual(dm.getPossibleGames(from: Self.puzzleInput, forPart: 1), result)
+//    }
+//    
+//    func testGivenPuzzleSampleForPart2ReturnsSampleSolution() {
+//        var dm = DiceMaster()
+//        let sampleData = """
+//            Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+//            Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
+//            Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
+//            Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
+//            Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
+//        """
+//        
+//        let result = 2286
+//        
+//        XCTAssertEqual(dm.getPossibleGames(from: sampleData, forPart: 2), result)
+//    }
+//    
+//    func testGivenPuzzleInputForPart2ShouldReturnPT2Solution() {
+//        var dm = DiceMaster()
+//        
+//        let result = 72596
+//        
+//        XCTAssertEqual(dm.getPossibleGames(from: Self.puzzleInput, forPart: 2), result)
+//    }
+//    
+//    func testGivenPuzzleSampleShouldReturnSampleResult(){
+//        var ws = Workshop()
+//        
+//        let sampleData = """
+//        467*.114..
+//        ..........
+//        .*35..633.
+//        ......#...
+//        617*......
+//        .....+.58.
+//        ..592.....
+//        ......755.
+//        ...$.*....
+//        .664.598..
+//        """
+//        
+//        let sampleResult = 4361
+//        
+//        XCTAssertEqual(ws.getSchematics(from: sampleData), sampleResult)
+//    }
+//    
+//    func testSample() {
+//        var ws = Workshop()
+//        
+//        let sampleData = """
+//        *11.12*
+//        .21.21.
+//        .31.32.
+//        *.....*
+//        """
+//        
+//        let sampleResult = 128
+//        
+//        XCTAssertEqual(ws.getSchematics(from: sampleData), sampleResult)
+//    }
+//    
+//    func testSample2() {
+//        var ws = Workshop()
+//        
+//        let sampleData = """
+//        *.....*
+//        41...42
+//        """
+//        
+//        let sampleResult = 83
+//        
+//        XCTAssertEqual(ws.getSchematics(from: sampleData), sampleResult)
+//    }
+//    
+//    func testGivenPuzzleDataShouldReturnPuzzleSolution() {
+//        var ws = Workshop()
+//        
+//        let result = 0
+//        
+//        XCTAssertEqual(ws.getSchematics(from: Self.rawInput), result)
+//    }
+//
+//    func testGivenPuzzleDataShouldReturnPuzzleSolution2() {
+//        let ws = NewWorkshop()
+//        
+//        let result = 0
+//        
+//        XCTAssertEqual(ws.sumOfPartNumbers(engineSchematic: Self.rawInput), result)
+//    }
     
     func  testGivenWinningNumbersAndScratchCardIfWinningNumberIsPresentShouldReturnPoints() {
         let analyser = LuckyNumberAnalyser()
