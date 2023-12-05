@@ -46,6 +46,10 @@
 		4FC653EE2B1F6DB50095512A /* AdventOfCode23UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCode23UITests.swift; sourceTree = "<group>"; };
 		4FC653F02B1F6DB50095512A /* AdventOfCode23UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCode23UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4FC654012B1F6E340095512A /* LuckyNumberAnalyser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyNumberAnalyser.swift; sourceTree = "<group>"; };
+		4FE56DA32B1F9BAD0060F24A /* CalibrationDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationDocument.swift; sourceTree = "<group>"; };
+		4FE56DC72B1F9BFC0060F24A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		4FE56DEB2B1F9C460060F24A /* Workshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workshop.swift; sourceTree = "<group>"; };
+		4FE56DEC2B1F9C460060F24A /* NewWorkshop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkshop.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +80,6 @@
 		4FC653C72B1F6DB40095512A = {
 			isa = PBXGroup;
 			children = (
-				4FC654012B1F6E340095512A /* LuckyNumberAnalyser.swift */,
 				4FC653D22B1F6DB40095512A /* AdventOfCode23 */,
 				4FC653E32B1F6DB50095512A /* AdventOfCode23Tests */,
 				4FC653ED2B1F6DB50095512A /* AdventOfCode23UITests */,
@@ -97,13 +100,13 @@
 		4FC653D22B1F6DB40095512A /* AdventOfCode23 */ = {
 			isa = PBXGroup;
 			children = (
+				4FC653D72B1F6DB50095512A /* Assets.xcassets */,
 				4FC653D32B1F6DB40095512A /* AdventOfCode23App.swift */,
 				4FC653D52B1F6DB40095512A /* ContentView.swift */,
 				4FC653FD2B1F6DC60095512A /* Day1 */,
-				4FC654002B1F6DE80095512A /* Day4 */,
-				4FC653D72B1F6DB50095512A /* Assets.xcassets */,
 				4FC653FE2B1F6DD00095512A /* Day2 */,
 				4FC653FF2B1F6DDF0095512A /* Day3 */,
+				4FC654002B1F6DE80095512A /* Day4 */,
 				4FC653D92B1F6DB50095512A /* Preview Content */,
 			);
 			path = AdventOfCode23;
@@ -137,6 +140,7 @@
 		4FC653FD2B1F6DC60095512A /* Day1 */ = {
 			isa = PBXGroup;
 			children = (
+				4FE56DA32B1F9BAD0060F24A /* CalibrationDocument.swift */,
 			);
 			path = Day1;
 			sourceTree = "<group>";
@@ -144,6 +148,7 @@
 		4FC653FE2B1F6DD00095512A /* Day2 */ = {
 			isa = PBXGroup;
 			children = (
+				4FE56DC72B1F9BFC0060F24A /* Game.swift */,
 			);
 			path = Day2;
 			sourceTree = "<group>";
@@ -151,6 +156,8 @@
 		4FC653FF2B1F6DDF0095512A /* Day3 */ = {
 			isa = PBXGroup;
 			children = (
+				4FE56DEC2B1F9C460060F24A /* NewWorkshop.swift */,
+				4FE56DEB2B1F9C460060F24A /* Workshop.swift */,
 			);
 			path = Day3;
 			sourceTree = "<group>";
@@ -158,6 +165,7 @@
 		4FC654002B1F6DE80095512A /* Day4 */ = {
 			isa = PBXGroup;
 			children = (
+				4FC654012B1F6E340095512A /* LuckyNumberAnalyser.swift */,
 			);
 			path = Day4;
 			sourceTree = "<group>";
