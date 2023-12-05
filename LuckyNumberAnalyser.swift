@@ -8,32 +8,31 @@
 import Foundation
 
 struct LuckyNumberAnalyser {
-    func calculatePoints(of rawCard: String) -> Int {
-        var card = rawCard.components(separatedBy: .newlines)
+    func calculatePoints(of rawInput: String) -> Int {
         
         var sum = 0
         
-        for i in 0..<card.count{
-            card[i].removeFirst(13)
-        }
+        var card = rawInput.components(separatedBy: .newlines)
         
-        for line in card {
+        for i in 0..<card.count {
+            card[i].removeFirst(10)
             
-            guard let winningNumbers = line.description.components(separatedBy: " | ").first?.components(separatedBy: .whitespaces) else { return -50000 }
-            guard let numbers = line.description.components(separatedBy: " | ").last else { return -9999999 }
-            
-            var count = 0
             var points = 0
             
-            for lucky in winningNumbers {
-                guard numbers.contains(lucky) else { continue }
-                
-                count += 1
-            }
+            let line = card[i].components(separatedBy: " | ")
+            let winningNumbers = line[0].components(separatedBy: .whitespaces)
+            let numbers = line[1]
             
-            sum += (Int(pow(2.0, Double(count - 1))))
+            winningNumbers.forEach { luckyNumber in
+                if numbers.contains(luckyNumber){
+                    if points == 0 { points = 1 }
+                    else { points *= 2 }
+                }
+            }
+            sum += points
         }
-        return sum + 1
+        
+        return sum
     }
     
 }
