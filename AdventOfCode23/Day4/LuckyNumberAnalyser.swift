@@ -12,7 +12,7 @@ struct LuckyNumberAnalyser {
         
         var sum = 0
         
-        var card = rawInput.components(separatedBy: .newlines)
+        var card = rawInput.split(separator: "\n")
         
         for i in 0..<card.count {
             card[i].removeFirst(10)
@@ -20,15 +20,18 @@ struct LuckyNumberAnalyser {
             //var points = 0
             var count = 0
             
-            let line = card[i].components(separatedBy: " | ")
-            let winningNumbers = line[0].components(separatedBy: .whitespaces)
-            let numbers = line[1]
+            let line = card[i].split(separator: " | ")
+            let winningNumbers = line[0].split(separator: " ").map{Int($0)}
+                //winningNumbers.removeAll{ $0.isEmpty }
+            
+            let numbers = line[1].split(separator: " ").map{Int($0)}
             
             winningNumbers.forEach { luckyNumber in
                 if numbers.contains(luckyNumber){
 //                    if points == 0 { points = 1 }
 //                    else { points *= 2 }
                     count += 1
+
                 }
             }
             //sum += points

@@ -211,6 +211,17 @@ final class AdventOfCode23Tests: XCTestCase {
         XCTAssertEqual(analyser.calculatePoints(of: scratchcard), expectedResult)
     }
     
+    func testGivenThisStringShouldReturn1() {
+        let analyser = LuckyNumberAnalyser()
+        
+        let sample = """
+    Card  1:  1 18  6 56 72 | 74 77 10 23 35 67  5  1
+    Card  2:  1 18  6 56 72 | 74 77 10 23 35 67  5  1
+    """
+        
+        XCTAssertEqual(analyser.calculatePoints(of: sample), 2)
+    }
+    
     func testGivenPuzzleInputShouldReturnPuzzleSolution() {
         let analyser = LuckyNumberAnalyser()
         
