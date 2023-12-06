@@ -222,15 +222,40 @@ final class AdventOfCode23Tests: XCTestCase {
         XCTAssertEqual(analyser.calculatePoints(of: sample), 2)
     }
     
+    func testGivenPT2SampleShouldReturnPT2SampleSolution() {
+        let analyser = LuckyNumberAnalyser()
+        
+        let sample = """
+    Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
+    Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
+    Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1
+    Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83
+    Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36
+    Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11
+    """
+        
+        let result = 30
+        
+        XCTAssertEqual(analyser.getScratchcards(from: sample), result)
+    }
+    
+    func testGivenPuzzlePT2InputShouldReturnPuzzlePT2Solution() {
+        let analyser = LuckyNumberAnalyser()
+        
+        let result = 0
+        
+        XCTAssertEqual(analyser.getScratchcards(from: Self.d4p1), result)
+    }
+    
     func testGivenPuzzleInputShouldReturnPuzzleSolution() {
         let analyser = LuckyNumberAnalyser()
         
-        let expectedResult = 0
+        let expectedResult = 17782
         
-        XCTAssertEqual(analyser.calculatePoints(of: Self.d3p1), expectedResult)
+        XCTAssertEqual(analyser.calculatePoints(of: Self.day3), expectedResult)
     }
     
-    static let rawData = """
+    static let Day1rawData = """
         6798seven
         six8b32csscsdgjsevenfivedlhzhc
         fcvvkvjjnhfivesixfiveninesxlvnhfckc54
@@ -1233,7 +1258,7 @@ final class AdventOfCode23Tests: XCTestCase {
         twotwo4seven1fqklblqbdxcmtch
         """
     
-    static let d3p1 = """
+    static let d4p1 = """
 Card   1: 81  1 43 40 49 51 38 65 36  4 | 21 15  1 43 60  9 83 81 35 49 40 38 82 65 20  4 58 94 16 89 84 10 77 48 76
 Card   2: 15 89 71 17 91 78 35 55 68 49 | 80 31 89 91 23 55 36 68 22 61 66 24 42 49 33 21 19 73 29 60 15 34 71 10 87
 Card   3:  4 45 78 42 29 92 16 90 93 30 | 97 90 75 40 43 65 92 83 41  4 47 35 29 80 68 87 30 71 98 42 95  7 76 69 88
@@ -1536,7 +1561,7 @@ Card 198: 69 30 47 82 65 23 79 32  3 80 |  5  1 55 62 86 75 36 14 31  7 38 18 66
     Game 99: 8 blue, 7 green; 1 green, 5 red, 3 blue; 7 green, 1 red, 2 blue; 5 green, 3 red, 12 blue; 2 green, 7 blue, 3 red
     Game 100: 4 blue, 1 green; 13 red, 2 blue; 16 red; 15 red, 2 blue; 9 red, 1 green, 1 blue; 7 red, 4 blue
     """
-    static let rawInput = """
+    static let day3 = """
     ..............423....688..934............970................................95.728..........896...113..................153..972.............
     ...122..................*.....*..........................919..509*..........&...@.........../...........................+.......*...........
     ....+..........259....698..373.992.52.674.........................781...22........130.584.....-...%399.......777.................266........
